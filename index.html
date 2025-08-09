@@ -7,55 +7,85 @@
     <title>Home | Chinese Cuisine</title>
     <link rel="stylesheet" href="style.css" />
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
     
-        .topnav {
-            overflow: hidden;
-            background-color: black;
-        }
-    
-        .topnav a {
-            float: left;
-            color: aqua;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-    
-        .topnav a:hover {
-            background-color: red;
-            color: black;
-        }
-    
-        .topnav a.active {
-            background-color: green;
-            color: black;
-        }
-    </style>
 </head>
 
 <body>
 
+   
     <header>
-        <nav class="navbar">
-            <h1 class="logo">Chinese Cuisine</h1>
-            <ul class="nav-links">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="topnav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About-Me</a>
+            <a class="active" href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact Us</a>
     </header>
 
     <section class="hero">
         <h2>Welcome to the World of Chinese Cuisine</h2>
         <p>Explore traditional dishes, rich culture, and tasty recipes</p>
+
+        <div class="mySlides"><img src="chi.jpeg" /></div>
+        <div class="mySlides"><img src="images.jpeg" /></div>
+        
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+        
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+        
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+
+                if (n > slides.length) { slideIndex = 1; }
+                if (n < 1) { slideIndex = slides.length; }
+
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+
+            // Auto-play
+            let autoSlideInterval = setInterval(() => {
+                plusSlides(1);
+            }, 5000);
+
+            // Pause on hover
+            const container = document.querySelector('.slideshow-container');
+            container.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval);
+            });
+            container.addEventListener('mouseleave', () => {
+                autoSlideInterval = setInterval(() => {
+                    plusSlides(1);
+                }, 5000);
+            });
+        </script>
     </section>
 
     <section class="main-content">
@@ -65,6 +95,7 @@
             years, it offers something for everyone. From spicy Sichuan dishes to sweet Cantonese flavors, the variety
             is endless. Learn about food, culture, and the tools that make Chinese cooking so special!
         </p>
+
     </section>
 
     <footer>

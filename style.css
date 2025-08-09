@@ -6,44 +6,35 @@ body {
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #b22222;
-    padding: 15px 25px;
-    color: white;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.nav-links {
-    list-style-type: none;
     margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.nav-links a {
+.topnav {
+    overflow: hidden;
+    background-color: black;
+}
+
+.topnav a {
+    float: left;
+    color: aqua;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    color: white;
-    font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: background 0.3s;
+    font-size: 17px;
 }
 
-.nav-links a:hover {
-    background-color: #8b0000;
+.topnav a:hover {
+    background-color: red;
+    color: black;
 }
 
-.nav-links a.active {
-    background-color: #ffffff;
-    color: #b22222;
+.topnav a.active {
+    background-color: green;
+    color: black;
 }
+
+
 
 .hero {
     background-color: #f2f2f2;
